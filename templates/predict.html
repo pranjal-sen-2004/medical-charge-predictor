@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #43e97b, #38f9d7);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 10px 25px rgba(0,0,0,0.2);
+            width: 400px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #43e97b;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #2ecc71;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f1f1f1;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .back {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            text-decoration: none;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Medical Charge Prediction</h2>
+
+        <form action="/predict" method="POST">
+            <input type="number" name="age" placeholder="Enter Age" required>
+
+            <select name="sex" required>
+                <option value="">Select Gender</option>
+                <option value="0">Male</option>
+                <option value="1">Female</option>
+            </select>
+
+            <input type="number" step="0.1" name="bmi" placeholder="Enter BMI" required>
+
+            <input type="number" name="children" placeholder="Number of Children" required>
+
+            <select name="smoker" required>
+                <option value="">Smoker?</option>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+
+            <select name="region" required>
+                <option value="">Select Region</option>
+                <option value="0">Southwest</option>
+                <option value="1">Southeast</option>
+                <option value="2">Northwest</option>
+                <option value="3">Northeast</option>
+            </select>
+
+            
+
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if results %}
+        <div class="result">
+            Predicted Medical Charges: ₹ {{ results }}
+        </div>
+        {% endif %}
+
+        <a href="/" class="back">⬅ Back to Home</a>
+    </div>
+</body>
+</html>
