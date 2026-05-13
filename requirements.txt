@@ -429,4 +429,3 @@ yarl @ file:///C:/b/abs_281qby2vim/croot/yarl_1732546854547/work
 zict @ file:///C:/Users/dev-admin/perseverance-python-buildout/croot/zict_1729052457267/work
 zipp @ file:///C:/b/abs_2fcpcg89my/croot/zipp_1732630746332/work
 zope.interface @ file:///C:/Users/dev-admin/buildout/croot/zope.interface_1735850995906/work
-zstandard @ file:///C:/b/abs_31t8xmrv_h/croot/zstandard_1731356578015/work
